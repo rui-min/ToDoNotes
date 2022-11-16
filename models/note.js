@@ -1,7 +1,6 @@
 const mongoose = require('mongoose')  // prepare Mongo database
 
 const url = process.env.MONGODB_URI
-console.log('connecting to', url);
 mongoose.connect(url)
   .then(result => {
     console.log('connected to MongoDB');
@@ -11,8 +10,15 @@ mongoose.connect(url)
   })
 
 const noteSchema = new mongoose.Schema({
-  content: String,
-  date: Date,
+  content: {
+    type: String,
+    minLength: 5,
+    required: true
+  },
+  date: {
+    type: Date,
+    required: true
+  },
   important: Boolean,
 })
 
@@ -25,5 +31,4 @@ noteSchema.set('toJSON', {
 })
 
 module.exports = mongoose.model('Note', noteSchema)
-
 // The public interface of the module is defined by setting a value to the module.exports variable. We will set the value to be the Note model. The other things defined inside of the module, like the variables mongoose and url will not be accessible or visible to users of the module.

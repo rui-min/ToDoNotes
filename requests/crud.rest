@@ -1,10 +1,27 @@
 GET http://localhost:3001/api/notes
-
 ###
 POST http://localhost:3001/api/notes
 Content-Type: application/json
 
 { 
-  "content": "Postman is a good tool for testing",
+  "content": "VS Code REST post",
+  "important": true
+}
+###
+PUT http://localhost:3001/api/notes/6372693f831e6943cca705fc
+Content-Type: application/json
+
+{ 
+  "content": "VS Code REST put",
+  "important": false
+}
+###
+DELETE  http://localhost:3001/api/notes/637286c4ca91bf069874b369
+###
+POST http://localhost:3001/api/notes
+Content-Type: application/json
+
+{ 
+  "content": "lol",
   "important": true
 }
