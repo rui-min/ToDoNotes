@@ -1,4 +1,6 @@
 // .Router() creates a router object each time for all consumers of module
+/* module file app.js creating the real application will define the relative 
+path, router object is an isolated instance of middleware and routes.*/
 const notesRouter = require('express').Router() 
 const Note = require('../models/note')
 
